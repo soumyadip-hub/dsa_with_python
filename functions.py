@@ -43,3 +43,48 @@ def print_details(*args,**kwargs):
         print(f"{key}:{value}")
 print_details(1,2,3,"rolex",name="rolex420",age="69",country="INDIA")
 #------------------------------------------------
+# function examples
+# example -1 Temparature conversion [function converts temparature between cellsius and farenheit]
+def converts_temparature(temp,unit):
+    if unit == 'c':
+        return temp * 9/5 + 32  #celcius to farenheit
+    elif unit == 'F':
+        return (temp-32)*5/9
+    else:
+        return None
+    
+print(converts_temparature(25,'c'))
+print(converts_temparature(77,'F'))
+# ----------------------------------------------------
+# example 2 password strength checker 
+def is_strong_password(password):
+    '''this function checks if the passwd is strong or not '''
+    if len(password)<8:
+        return False
+    if not any(char.isdigit() for char in password):
+        return False
+    if not any(char.isupper() for char in password):
+        return False
+    if not any(char in '!@#$%^&*()-+' for char in password):
+        return False
+    return True
+print(is_strong_password("weakpasswd"))
+print(is_strong_password("passwrd20"))
+print(is_strong_password("sp213"))
+print(is_strong_password("IDUHIU3iuwq234$#"))
+print(is_strong_password("345678"))
+print(is_strong_password("LSFJIEADE"))
+# --------------------------------------------
+# validate Email Address
+import re
+# Email validation function 
+def is_valid_email(email):
+    """this funciton checks if  the Email is valid"""
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern,email) is not None
+#calling funtion
+print(is_valid_email("test@example.com"))
+print(is_valid_email("invalid_Email"))
+# --------------------------------------
+
+    
